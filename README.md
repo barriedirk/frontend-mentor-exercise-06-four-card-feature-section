@@ -5,4 +5,4 @@
 ## Welcome! 👋
 
 [github repository](https://github.com/barriedirk/frontend-mentor-exercise-06-four-card-feature-section)
-[URL website]
+[URL website](https://barriedirk.github.io/frontend-mentor-exercise-06-four-card-feature-section)
