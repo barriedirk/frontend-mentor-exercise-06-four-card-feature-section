@@ -1,0 +1,216 @@
+:root {
+  /* Red */
+  --clr-red-h: 0; /* Hue */
+  --clr-red-s: 78%; /* Saturation */
+  --clr-red-l: 62%; /* Lightness */
+
+  /* Cyan */
+  --clr-cyan-h: 180; /* Hue */
+  --clr-cyan-s: 62%; /* Saturation */
+  --clr-cyan-l: 55%; /* Lightness */
+
+  /* Orange */
+  --clr-orange-h: 34; /* Hue */
+  --clr-orange-s: 97%; /* Saturation */
+  --clr-orange-l: 64%; /* Lightness */
+
+  /* Blue */
+  --clr-blue-h: 212; /* Hue */
+  --clr-blue-s: 86%; /* Saturation */
+  --clr-blue-l: 64%; /* Lightness */
+
+  /* Construct final hsl() colors */
+  --clr-red: hsl(var(--clr-red-h), var(--clr-red-s), var(--clr-red-l));
+  --clr-cyan: hsl(var(--clr-cyan-h), var(--clr-cyan-s), var(--clr-cyan-l));
+  --clr-orange: hsl(
+    var(--clr-orange-h),
+    var(--clr-orange-s),
+    var(--clr-orange-l)
+  );
+  --clr-blue: hsl(var(--clr-blue-h), var(--clr-blue-s), var(--clr-blue-l));
+
+  --clr-grey-500: hsl(234, 12%, 34%);
+  --clr-grey-400: hsl(212, 6%, 44%);
+  --clr-white: hsl(0, 0%, 100%);
+}
+
+.sr-only {
+  position: absolute; /* Take the element out of the normal flow */
+  width: 1px; /* Set width to 1px to make the element as small as possible */
+  height: 1px; /* Set height to 1px */
+  margin: -1px; /* Avoid any extra space */
+  padding: 0; /* Remove padding */
+  border: 0; /* Remove any border */
+  clip: rect(
+    0,
+    0,
+    0,
+    0
+  ); /* Clip the element to the smallest possible rectangle */
+  overflow: hidden; /* Hide the content */
+  white-space: nowrap; /* Prevent wrapping of content */
+}
+
+html {
+  /* 16px × 62.5% = 10px */
+  /* 10 / 16 x 100 = 62.5% */
+  font-size: 62.5%;
+}
+
+body {
+  color: var(--clr-grey-500);
+  font-size: 1.5rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+h1,
+h2 {
+  font-size: 2.4rem;
+  letter-spacing: 0.25px;
+}
+
+h1,
+h3 {
+  font-weight: 600;
+  font-style: normal;
+}
+
+h2 {
+  font-weight: 200;
+  font-style: normal;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+p {
+  font-size: 1.5rem;
+  letter-spacing: 0.1px;
+  line-height: 1.4;
+}
+
+.cards-header {
+  margin: 0 auto 60px;
+  max-width: 316px;
+}
+
+.card {
+  border-top: 4px solid transparent;
+  width: 314px;
+  height: 250px;
+  padding: 32px;
+
+  background-repeat: no-repeat;
+  background-position: 80% 80%;
+  background-size: 64px 64px;
+
+  border-radius: 8px;
+}
+
+.card p {
+  color: var(--clr-grey-400);
+  line-height: 1.6;
+  letter-spacing: 0.09px;
+}
+
+.card--supervisor {
+  grid-area: supervisor;
+  border-top-color: var(--clr-cyan);
+  background-image: url("images/icon-supervisor.svg");
+  border-color: var(--clr-cyan);
+  box-shadow: 0 1rem 1.5rem -0.5rem hsla(var(--clr-cyan-h), var(--clr-cyan-s), var(--clr-cyan-l), 0.2);
+}
+
+.card--team-builder {
+  grid-area: builder;
+  border-top-color: var(--clr-red);
+  background-image: url("images/icon-team-builder.svg");
+  border-color: var(--clr-red);
+  box-shadow: 0 1rem 1.5rem -0.5rem hsla(var(--clr-red-h), var(--clr-red-s), var(--clr-red-l), 0.2);
+}
+
+.card--karma {
+  grid-area: karma;
+  border-top-color: var(--clr-orange);
+  background-image: url("images/icon-karma.svg");
+  border-color: var(--clr-orange);
+  box-shadow: 0 1rem 1.5rem -0.5rem hsla(var(--clr-orange-h), var(--clr-orange-s), var(--clr-orange-l), 0.2);
+}
+
+.card--calculator {
+  grid-area: calculator;
+  border-top-color: var(--clr-blue);
+  background-image: url("images/icon-calculator.svg");
+  border-color: var(--clr-blue);
+  box-shadow: 0 1rem 1.5rem -0.5rem hsla(var(--clr-blue-h), var(--clr-blue-s), var(--clr-blue-l), 0.2);
+}
+
+.center {
+  text-align: center;
+}
+
+.title {
+  margin-bottom: 16px;
+}
+
+.cards-wrapper {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+main {
+  padding: 56px 20px;
+}
+
+@media screen and (min-width: 750px) {
+  h1,
+  h2 {
+    font-size: 3.6rem;
+  }
+
+  .cards-header {
+    max-width: 540px;
+  }
+
+  .cards-wrapper {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+      "supervisor ."
+      "builder  karma"
+      "calculator .";
+    gap: 3.2rem;
+    width: fit-content;
+  }
+
+  .card--calculator,
+  .card--supervisor {
+    grid-column: span 2;
+    margin: auto;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .cards-wrapper {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      "supervisor builder calculator "
+      ". karma .";
+    width: fit-content;
+  }
+
+  .card--supervisor,
+  .card--calculator {
+    grid-column: span 1;
+    grid-row: span 2;
+  }
+}
